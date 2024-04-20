@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:39:56 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/19 16:08:45 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/20 16:07:26 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "./GNL/get_next_line.h"
-# include "./minilibx/mlx.h"
+# include "./MLX42/include/MLX42/MLX42.h"
 
 typedef struct t_start
 {
@@ -45,7 +45,7 @@ typedef struct t_start
 }	t_complete;
 
 int		ft_create_map(t_complete *game, char **argv);
-void	ft_check_map(t_complete *game);
-
+void	ft_check_walls(t_complete *game);
+void	ft_check_characters(t_complete *game);
 
 #endif

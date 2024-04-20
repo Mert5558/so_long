@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:39:34 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/19 16:11:21 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/20 16:31:44 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_memset(&game, 0, sizeof(t_complete));
 	ft_create_map(&game, argv);
-	ft_check_map(&game);
+	ft_check_walls(&game);
+	ft_check_characters(&game);
+	return (0);
 }
