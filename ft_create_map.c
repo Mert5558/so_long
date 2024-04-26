@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:31:53 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/19 17:31:47 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/25 16:00:17 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int ft_add_map_lines(t_complete *game, char *new_line)
 	return (0);
 }
 
-
 int	ft_create_map(t_complete *game, char **argv)
 {
 	char	*new_line;
@@ -53,5 +52,7 @@ int	ft_create_map(t_complete *game, char **argv)
 	}
 	close(game->fd);
 	game->map_width = ft_strlen(game->map[0]) - 1;
+	// printf("%d\n", game->map[0][1]);
+	// printf("%d\n", game->map[4][12]);
 	return (0);
 }
