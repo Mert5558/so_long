@@ -6,17 +6,18 @@
 #    By: merdal <merdal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 13:26:17 by merdal            #+#    #+#              #
-#    Updated: 2024/04/20 16:24:20 by merdal           ###   ########.fr        #
+#    Updated: 2024/04/25 15:35:32 by merdal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CC = cc 
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 NAME = so_long
 SRCS =	so_long.c \
 		ft_create_map.c \
 		ft_check_walls.c \
 		ft_check_characters.c \
+		ft_place_images.c \
 
 GNL = GNL/*.c
 OBJS = $(SRCS:.c=.o)
