@@ -6,11 +6,11 @@
 #    By: merdal <merdal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 13:26:17 by merdal            #+#    #+#              #
-#    Updated: 2024/04/25 15:35:32 by merdal           ###   ########.fr        #
+#    Updated: 2024/04/29 17:04:12 by merdal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc 
+#                              | entfernen wenn fertig
 CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 NAME = so_long
 SRCS =	so_long.c \
@@ -18,6 +18,10 @@ SRCS =	so_long.c \
 		ft_check_walls.c \
 		ft_check_characters.c \
 		ft_place_images.c \
+		ft_take_key_input.c \
+		ft_putnbr.c \
+		ft_move.c \
+		ft_move_direction.c \
 
 GNL = GNL/*.c
 OBJS = $(SRCS:.c=.o)
