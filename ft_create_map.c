@@ -6,15 +6,15 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:31:53 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/25 16:00:17 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/29 16:48:34 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int ft_add_map_lines(t_complete *game, char *new_line)
+int	ft_add_map_lines(t_complete *game, char *new_line)
 {
-    char	**temp_map;
+	char	**temp_map;
 	int		i;
 
 	if (new_line == NULL)
@@ -23,7 +23,7 @@ int ft_add_map_lines(t_complete *game, char *new_line)
 	temp_map = (char **)malloc(sizeof(char *) * (game->map_height + 1));
 	if (temp_map == NULL)
 		return (1);
-	i	= 0;
+	i = 0;
 	while (i < game->map_height - 1)
 	{
 		temp_map[i] = game->map[i];
@@ -39,11 +39,10 @@ int ft_add_map_lines(t_complete *game, char *new_line)
 int	ft_create_map(t_complete *game, char **argv)
 {
 	char	*new_line;
-	
+
 	game->fd = open(argv[1], O_RDONLY);
 	if (game->fd == -1)
 		return (0);
-	
 	while (1)
 	{
 		new_line = get_next_line(game->fd);
@@ -52,7 +51,5 @@ int	ft_create_map(t_complete *game, char **argv)
 	}
 	close(game->fd);
 	game->map_width = ft_strlen(game->map[0]) - 1;
-	// printf("%d\n", game->map[0][1]);
-	// printf("%d\n", game->map[4][12]);
 	return (0);
 }

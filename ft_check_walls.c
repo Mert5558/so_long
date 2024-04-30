@@ -6,20 +6,11 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:35:34 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/20 15:47:11 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/29 16:47:19 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void print_map(t_complete *game) {
-    for (int i = 0; i < game->map_height; i++) {
-        for (int j = 0; j < game->map_width; j++) {
-            printf("%c ", game->map[i][j]);
-        }
-        printf("\n");
-    }
-}
 
 int	ft_top_wall(t_complete *game)
 {
@@ -35,9 +26,8 @@ int	ft_top_wall(t_complete *game)
 	return (0);
 }
 
-int ft_bottom_wall(t_complete *game)
+int	ft_bottom_wall(t_complete *game)
 {
-
 	int	i;
 
 	i = 0;
@@ -52,7 +42,7 @@ int ft_bottom_wall(t_complete *game)
 
 int	ft_left_wall(t_complete *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (game->map[i] != NULL)
@@ -66,7 +56,7 @@ int	ft_left_wall(t_complete *game)
 
 int	ft_right_wall(t_complete *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (game->map[i] != NULL)
@@ -83,12 +73,11 @@ void	ft_check_walls(t_complete *game)
 	if (ft_top_wall(game) == 1 || ft_bottom_wall(game) == 1)
 	{
 		write(1, "Error\nMap is not surrounded by walls\n", 37);
-		//exit;
+		exit(1);
 	}
-
 	if (ft_left_wall(game) == 1 || ft_right_wall(game) == 1)
 	{
 		write(1, "Error\nMap is not surrounded by walls\n", 37);
-		//exit;
+		exit(1);
 	}
 }
