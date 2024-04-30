@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:45:07 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/29 17:45:37 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/30 15:28:15 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,67 @@
 
 void	ft_move_player(t_complete *game, int x, int y)
 {
-	game->map[y][x] = 'P';
+	if (game->map[y][x] == 'E')
+		game->map[y][x] = 'P';
 	game->player_x = x;
 	game->player_y = y;
+	game->player_image->instances->x = x * 64;
+	game->player_image->instances->y = y * 64;
 }
 
 void	ft_game_finished(t_complete *game, int x, int y)
 {
-	game->moves++;
-	write(1, "Moves: ", 7);
-	ft_putnbr(game->moves);
-	write(1, "\n", 1);
-	write(1, "You won!\n", 9);
 	ft_move_player(game, x, y);
+	game->moves++;
+	ft_printf("Moves: %d\n", game->moves);
+	ft_printf("Game finished!\n");
 	exit(0);
 }
 
-// void	ft_remove_coin(t_complete *game, int x, int y)
-// {
-	
-// }
+void	ft_remove_coin(t_complete *game, int x, int y)
+{
+	int	coins;
+	int	i;
+
+	coins = game->c_counter;
+	i = 0;
+	while (i < coins)
+	{
+		if (game->collectable_image->instances[i].x == x * 64
+			&& game->collectable_image->instances[i].y == y * 64)
+		{
+			game->collectable_image->instances[i].enabled = false;
+			break ;
+		}
+		i++;
+	}
+}
 
 void	ft_check_coin(t_complete *game, int x, int y)
 {
-	game->c_counter--;
-	game->moves++;
-	write(1, "Moves: ", 7);
-	ft_putnbr(game->moves);
-	write(1, "\n", 1);
-	write(1, "collectables left: \n", 21);
-	ft_putnbr(game->c_counter);
+	ft_remove_coin(game, x, y);
 	ft_move_player(game, x, y);
-	//ft_remove_coin(game, x, y);
+	game->moves++;
+	game->c_counter--;
+	ft_printf("Moves: %d\n", game->moves);
+	ft_printf("Coins left: %d\n", game->c_counter);
 }
 
 void	ft_move(t_complete *game, int x, int y)
 {
 	if (game->map[y][x] == 'E' && game->c_counter == 0)
 	{
-		ft_game_finished(game, x ,y);
+		ft_game_finished(game, x, y);
+		return ;
 	}
 	if (game->map[y][x] == 'C')
 	{
 		ft_check_coin(game, x, y);
 	}
-	else
+	if (game->map[y][x] == '0')
 	{
 		ft_move_player(game, x, y);
 		game->moves++;
-		write(1, "Moves: ", 7);
-		ft_putnbr(game->moves);
-		write(1, "\n", 1);
+		ft_printf("Moves: %d\n", game->moves);
 	}
 }

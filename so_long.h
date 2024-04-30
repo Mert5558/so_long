@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:39:56 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/29 16:18:05 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/30 15:53:28 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <string.h>
 # include "./GNL/get_next_line.h"
+# include "./printf/ft_printf.h"
 # include "./MLX42/include/MLX42/MLX42.h"
 
 # define WIDTH 1000
@@ -25,21 +26,16 @@
 
 typedef struct t_start
 {
-	int		fd;
-	int		playercount;
-	int		columncount;
-	int		exitcount;
-	int		map_height;
-	int		map_width;
-	int		player_x;
-	int		player_y;
-	int		c_counter;
-	int		counter;
-	int		moves;
+	int				fd;
+	int				map_height;
+	int				map_width;
+	int				player_x;
+	int				player_y;
+	int				c_counter;
+	int				moves;
 
-	char	**map;
-	void	*winpointer;
-	void	*mlxpointer;
+	char			**map;
+	void			*mlxpointer;
 
 	mlx_texture_t	*player_texture;
 	mlx_texture_t	*collectable_texture;
@@ -64,7 +60,6 @@ void	ft_place_images(t_complete *game);
 void	ft_place_player(t_complete *game);
 void	ft_texture_to_image(t_complete *game);
 void	ft_take_key_input(mlx_key_data_t keydata, void *param);
-void	ft_putnbr(int n);
 void	ft_move_up(t_complete *game);
 void	ft_move_down(t_complete *game);
 void	ft_move_left(t_complete *game);
