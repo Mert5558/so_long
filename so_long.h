@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:39:56 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/26 14:53:10 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/29 16:18:05 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ typedef struct t_start
 	int		exitcount;
 	int		map_height;
 	int		map_width;
-	int		x_axis;
-	int		y_axis;
-	int		collectables;
+	int		player_x;
+	int		player_y;
+	int		c_counter;
 	int		counter;
+	int		moves;
 
 	char	**map;
 	void	*winpointer;
@@ -58,8 +59,16 @@ int		ft_create_map(t_complete *game, char **argv);
 void	ft_check_walls(t_complete *game);
 void	ft_check_characters(t_complete *game);
 void	ft_load_images(t_complete *game);
+void	ft_place_floor(t_complete *game);
 void	ft_place_images(t_complete *game);
-void	ft_place_images_2(t_complete *game);
+void	ft_place_player(t_complete *game);
 void	ft_texture_to_image(t_complete *game);
+void	ft_take_key_input(mlx_key_data_t keydata, void *param);
+void	ft_putnbr(int n);
+void	ft_move_up(t_complete *game);
+void	ft_move_down(t_complete *game);
+void	ft_move_left(t_complete *game);
+void	ft_move_right(t_complete *game);
+void	ft_move(t_complete *game, int x, int y);
 
 #endif
