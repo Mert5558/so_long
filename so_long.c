@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:39:34 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/30 15:52:57 by merdal           ###   ########.fr       */
+/*   Updated: 2024/05/03 12:54:09 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (0);
-	game = calloc(1, sizeof(t_complete));
+	game = ft_calloc(1, sizeof(t_complete));
 	if (!game)
 		return (1);
 	ft_create_map(game, argv);
@@ -34,5 +34,6 @@ int	main(int argc, char **argv)
 	ft_place_player(game);
 	mlx_key_hook(game->mlxpointer, ft_take_key_input, game);
 	mlx_loop(game->mlxpointer);
+	ft_free_everything(game);
 	return (0);
 }

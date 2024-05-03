@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:45:07 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/30 15:28:15 by merdal           ###   ########.fr       */
+/*   Updated: 2024/05/02 14:35:54 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ void	ft_game_finished(t_complete *game, int x, int y)
 
 void	ft_remove_coin(t_complete *game, int x, int y)
 {
-	int	coins;
 	int	i;
 
-	coins = game->c_counter;
 	i = 0;
-	while (i < coins)
+	while (i < game->c_total)
 	{
 		if (game->collectable_image->instances[i].x == x * 64
 			&& game->collectable_image->instances[i].y == y * 64)
 		{
 			game->collectable_image->instances[i].enabled = false;
+			game->map[y][x] = '0';
+			game->c_counter--;
 			break ;
 		}
 		i++;
@@ -55,7 +55,6 @@ void	ft_check_coin(t_complete *game, int x, int y)
 	ft_remove_coin(game, x, y);
 	ft_move_player(game, x, y);
 	game->moves++;
-	game->c_counter--;
 	ft_printf("Moves: %d\n", game->moves);
 	ft_printf("Coins left: %d\n", game->c_counter);
 }
@@ -67,11 +66,17 @@ void	ft_move(t_complete *game, int x, int y)
 		ft_game_finished(game, x, y);
 		return ;
 	}
+	if (game->map[y][x] == '0')
+	{
+		ft_move_player(game, x, y);
+		game->moves++;
+		ft_printf("Moves: %d\n", game->moves);
+	}
 	if (game->map[y][x] == 'C')
 	{
 		ft_check_coin(game, x, y);
 	}
-	if (game->map[y][x] == '0')
+	if (game->map[y][x] == 'P')
 	{
 		ft_move_player(game, x, y);
 		game->moves++;
