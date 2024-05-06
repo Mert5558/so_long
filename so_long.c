@@ -37,3 +37,5 @@ int	main(int argc, char **argv)
 	ft_free_everything(game);
 	return (0);
 }
+
+//hello
