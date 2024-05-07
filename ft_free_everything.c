@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:49:07 by merdal            #+#    #+#             */
-/*   Updated: 2024/05/03 12:55:53 by merdal           ###   ########.fr       */
+/*   Updated: 2024/05/07 12:21:43 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_free_everything(t_complete *game)
 		free(game->map[i]);
 		i++;
 	}
+	i = 0;
 	free(game->map);
 	mlx_delete_texture(game->player_texture);
 	mlx_delete_texture(game->collectable_texture);
