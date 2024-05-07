@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 15:33:10 by merdal            #+#    #+#             */
-/*   Updated: 2024/05/03 12:12:41 by merdal           ###   ########.fr       */
+/*   Updated: 2024/05/04 14:12:15 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ int	ft_check_exit(t_complete *game)
 	int	i;
 	int	j;
 	int	count;
+	int	count2;
 
 	i = 0;
 	count = 0;
+	count2 = 0;
 	while (game->map[i] != NULL)
 	{
 		j = 0;
