@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:39:56 by merdal            #+#    #+#             */
-/*   Updated: 2024/05/03 12:51:36 by merdal           ###   ########.fr       */
+/*   Updated: 2024/05/04 15:54:54 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct t_start
 	int				moves;
 
 	char			**map;
+	char			**map_copy;
 	void			*mlxpointer;
 
 	mlx_texture_t	*player_texture;
@@ -68,5 +69,6 @@ void	ft_move_right(t_complete *game);
 void	ft_move(t_complete *game, int x, int y);
 void	*ft_calloc(size_t n_items, size_t size);
 void	ft_free_everything(t_complete *game);
+void	ft_check_path(t_complete *game);
 
 #endif

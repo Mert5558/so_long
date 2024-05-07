@@ -6,7 +6,7 @@
 #    By: merdal <merdal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 13:26:17 by merdal            #+#    #+#              #
-#    Updated: 2024/05/03 12:51:51 by merdal           ###   ########.fr        #
+#    Updated: 2024/05/04 12:50:34 by merdal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS =	so_long.c \
         ft_move_direction.c \
         ft_calloc.c \
 		ft_free_everything.c \
+		ft_check_path.c \
 
 GNL = GNL/*.c
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:39:34 by merdal            #+#    #+#             */
-/*   Updated: 2024/05/03 12:54:09 by merdal           ###   ########.fr       */
+/*   Updated: 2024/05/07 12:21:20 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 	ft_create_map(game, argv);
 	ft_check_walls(game);
 	ft_check_characters(game);
+	ft_check_path(game);
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	game->mlxpointer = mlx_init(game->map_width * 64,
 			game->map_height * 64, "so_long", true);
@@ -37,5 +38,3 @@ int	main(int argc, char **argv)
 	ft_free_everything(game);
 	return (0);
 }
-
-//hello abc
