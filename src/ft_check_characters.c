@@ -41,11 +41,9 @@ int	ft_check_exit(t_complete *game)
 	int	i;
 	int	j;
 	int	count;
-	int	count2;
 
 	i = 0;
 	count = 0;
-	count2 = 0;
 	while (game->map[i] != NULL)
 	{
 		j = 0;

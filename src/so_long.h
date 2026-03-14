@@ -17,9 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
-# include "./GNL/get_next_line.h"
-# include "./printf/ft_printf.h"
-# include "./MLX42/include/MLX42/MLX42.h"
+# include "get_next_line.h"
+# include "ft_printf.h"
+# include <MLX42/MLX42.h>
 
 # define WIDTH 1000
 # define HEIGHT 400

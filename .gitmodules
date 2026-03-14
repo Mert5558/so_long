@@ -1,0 +1,6 @@
+[submodule "lib/printf"]
+	path = lib/printf
+	url = https://github.com/Mert5558/printf.git
+[submodule "lib/GNL"]
+	path = lib/GNL
+	url = https://github.com/Mert5558/get_next_line.git
