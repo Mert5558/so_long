@@ -32,6 +32,8 @@ The player is represented by `P`.
 
 Each movement is counted and displayed.
 
+The player can be moved with W, A, S, D.
+
 ---
 
 ## 🎨 Sprites
@@ -44,7 +46,7 @@ All game sprites used in this project were **created by me**.
 
 Example gameplay of the project.
 
-
+[so_long.webm](https://github.com/user-attachments/assets/021fbcd4-ab54-41c1-9653-a2d99517ee38)
 
 ---
 
