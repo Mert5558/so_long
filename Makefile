@@ -35,7 +35,12 @@ PRINTF_LIB = $(PRINTF)/libftprintf.a
 INCLUDES = -I./src -I./lib/GNL/src -I./lib/printf/src -I./$(MLX42)/include
 RM = rm -f
 
-all: $(MLX_LIB) $(PRINTF_LIB) $(NAME)
+.PHONY: all prepare clean fclean re
+
+all: prepare $(MLX_LIB) $(PRINTF_LIB) $(NAME)
+
+prepare:
+	git submodule update --init --recursive
 
 MLX_URL = https://github.com/codam-coding-college/MLX42.git
 
